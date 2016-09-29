@@ -1,5 +1,5 @@
 # ILS-Z534: Search
-## Assignment 1
+## Assignment 1 - Naveen Jetty
 
 ### Running Instructions:
 Both question 1 and Question 2 are written as seperate maven projects in order to have the dependencies easily created.
@@ -69,4 +69,99 @@ Comparing the Analyzers
 |  Simple Analyzer  |          YES          |                  37330144                  |         NO        |          NO         |                     169981                    |
 |   Stop Analyzer   |          YES          |                  26216475                  |         NO        |         YES         |                     169948                    |
 | Standard Analyzer |          YES          |                  26649680                  |         NO        |         YES         |                     233384                    |
+
+##### Keyword Analyzer:
+Number of tokens is equal to number of documents in the corpus. Each document is considered as long token to index.
+##### Simple Analyzer:
+Filters letter tokenizier with lower case filter. Splits text at non character boundaries.
+##### Stop Analyzer :
+Removes stop words and hence performs the indexing quickly
+##### Standard Analyzer:
+Uses stop words and simple punctuations as split points.
+
+##### Output for the IndexComparison.java
+```sh
+------------------------------------------------------------------
+Analyzer name: KeywordAnalyzer
+------------------------------------------------------------------
+Creating an index location for the Analyser Type: KeywordAnalyzer
+Indexes are being created.
+Index has been built
+Displaying the statistics for the KeywordAnalyzer
+------------------------------------------------------------------
+Total number of documents in the corpus:84474
+Number of documents containing the term "new" forfield "TEXT": 0
+Number of occurences of "new" in the field "TEXT": 0
+Size of the vocabulary for this field: 84061
+Number of documents that have at least one term for this field: 84474
+Number of tokens for this field: 84474
+Number of postings for this field: 84474
+------------------------------------------------------------------
+
+
+------------------------------------------------------------------
+Analyzer name: SimpleAnalyzer
+------------------------------------------------------------------
+Creating an index location for the Analyser Type: SimpleAnalyzer
+Indexes are being created.
+Index has been built
+Displaying the statistics for the SimpleAnalyzer
+------------------------------------------------------------------
+Total number of documents in the corpus:84474
+Number of documents containing the term "new" forfield "TEXT": 38618
+Number of occurences of "new" in the field "TEXT": 83726
+Size of the vocabulary for this field: 169981
+Number of documents that have at least one term for this field: 84456
+Number of tokens for this field: 37330144
+Number of postings for this field: 18973889
+------------------------------------------------------------------
+
+
+------------------------------------------------------------------
+Analyzer name: StopAnalyzer
+------------------------------------------------------------------
+Creating an index location for the Analyser Type: StopAnalyzer
+Indexes are being created.
+Index has been built
+Displaying the statistics for the StopAnalyzer
+------------------------------------------------------------------
+Total number of documents in the corpus:84474
+Number of documents containing the term "new" forfield "TEXT": 38618
+Number of occurences of "new" in the field "TEXT": 83726
+Size of the vocabulary for this field: 169948
+Number of documents that have at least one term for this field: 84456
+Number of tokens for this field: 26216475
+Number of postings for this field: 17119173
+------------------------------------------------------------------
+
+
+------------------------------------------------------------------
+Analyzer name: StandardAnalyzer
+------------------------------------------------------------------
+Creating an index location for the Analyser Type: StandardAnalyzer
+Indexes are being created.
+Index has been built
+Displaying the statistics for the StandardAnalyzer
+------------------------------------------------------------------
+Total number of documents in the corpus:84474
+Number of documents containing the term "new" forfield "TEXT": 38604
+Number of occurences of "new" in the field "TEXT": 83642
+Size of the vocabulary for this field: 233384
+Number of documents that have at least one term for this field: 84456
+Number of tokens for this field: 26649680
+Number of postings for this field: 18049815
+------------------------------------------------------------------
+
+
+Index comparison process completed!
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 04:08 min
+[INFO] Finished at: 2016-09-28T23:28:46-04:00
+[INFO] Final Memory: 10M/142M
+[INFO] ------------------------------------------------------------------------
+```
+
+*End of Document*
 
